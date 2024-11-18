@@ -24,7 +24,8 @@ def sign_up_by_html(request):
                     info["error"] = 'Вам должно быть больше 18 для регистрации'
             else:
                 info["error"] = 'Пароли не совпадают'
-    return render(request, 'registration_page.html')
+    error_type = 'error'
+    return render(request, 'registration_page.html'), HttpResponse(f"{info[error_type]}")
 
 def sign_up_by_django(request):
     user = ['max', 'pol', 'saha']
